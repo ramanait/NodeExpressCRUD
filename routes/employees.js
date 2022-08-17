@@ -2,9 +2,20 @@ const express = require('express');
 const router = express.Router();
 const employee = require("../controllers/EmployeeController.js");
 
-// Get all employees
+// Get all employees in the UI
 router.get('/', (req, res) => {
   employee.list(req, res);
+});
+
+// Get all employees in the UI
+router.get('/json', (req, res) => {
+  employee.listJson(req, res);
+});
+
+
+// Get single employee by id
+router.get('/byId/:id', (req, res) => {
+  employee.byId(req, res);
 });
 
 // Get single employee by id

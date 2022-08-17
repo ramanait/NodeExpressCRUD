@@ -9,3 +9,5 @@ const EmployeeSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Employee', EmployeeSchema);
+/**  schema is stucture of data which can be stored {employee name, address, employee id, position, salary, 
+ * updated_at }*/

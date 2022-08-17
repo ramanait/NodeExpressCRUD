@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost/employee')
+mongoose.connect('mongodb://localhost/employee') //default port of mongodb 27017
   .then(() => console.log('connection succesful'))
   .catch((err) => console.error(err));
 
@@ -18,7 +18,7 @@ const employees = require('./routes/employees');
 const app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views')); // load the files from views folder in the project
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
