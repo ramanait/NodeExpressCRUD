@@ -3,17 +3,6 @@ const Employee = require("../models/Employee");
 
 const employeeController = {};
 
-// Show list of employees UI
-employeeController.list = (req, res) => {
-  Employee.find({}).exec((err, employees) => {
-    if (err) {
-      console.log("Error:", err);
-    }
-    else {
-      res.render("../views/employees/index", { employees: employees });
-    }
-  });
-};
 
 // Show list of employees as JSON
 employeeController.listJson = (req, res) => {
@@ -67,34 +56,23 @@ employeeController.save = (req, res) => {
   employee.save((err) => {
     if (err) {
       console.log(err);
-      res.render("../views/employees/create");
+      res.send(400, { err: err });
     } else {
       console.log("Successfully created an employee.");
-      res.redirect("/employees/show/" + employee._id);
+      res.send({ id: employee._id });
     }
   });
 };
 
-// Edit an employee
-employeeController.edit = (req, res) => {
-  Employee.findOne({ _id: req.params.id }).exec((err, employee) => {
-    if (err) {
-      console.log("Error:", err);
-    }
-    else {
-      res.render("../views/employees/edit", { employee: employee });
-    }
-  });
-};
 
 // Update an employee
 employeeController.update = (req, res) => {
   Employee.findByIdAndUpdate(req.params.id, { $set: { name: req.body.name, address: req.body.address, position: req.body.position, salary: req.body.salary } }, { new: true }, function (err, employee) {
     if (err) {
       console.log(err);
-      res.render("../views/employees/edit", { employee: req.body });
+      res.render(400, { employee: req.body });
     }
-    res.redirect("/employees/show/" + employee._id);
+    res.send({ id: employee._id });
   });
 };
 
@@ -103,10 +81,11 @@ employeeController.delete = (req, res) => {
   Employee.remove({ _id: req.params.id }, (err) => {
     if (err) {
       console.log(err);
+      res.send(400, {msg:"Employee deleted"})
     }
     else {
       console.log("Employee deleted!");
-      res.redirect("/employees");
+      res.send({"msg":"Employee deleted successfully"});
     }
   });
 };
