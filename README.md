@@ -3,7 +3,7 @@
 This source code is part of [Node.js, Express.js, Mongoose and MongoDB CRUD Tutorial](https://github.com/ramanait/NodeExpressCRUD)
 
 
-#Git Commands
+# Git Commands
 
 Repo URL http URL or SSH URL 
 Repo examples : Bitbucket, Azure Repos, Gitlab, Aws code commit
@@ -12,7 +12,7 @@ git clone <http url> or <ssh url>
 
 
 
-#Terminal commands
+# Terminal commands
 `npm i` install all the modules in the package.json
 `npm start`  to excute the scripts with `start` word
 
@@ -33,14 +33,14 @@ Array: []
 Array of Objects: [{},{},{}]
 
 
-#CRUD:
+# CRUD:
 
 C - Create - POST
 R - Read - GET
 U - Update - PUT
 D - Delete - DELETE
 
-#Status Codes
+# Status Codes
 
 Success Response Codes
 200 - Success
@@ -57,7 +57,7 @@ Failure Response Codes
 502 - Bad Gateway 
 
 
-#Mongoose
+# Mongoose
 
 model.save() // model.create() to create or add the data in the database
 model.find() // list all the records in model
@@ -68,7 +68,7 @@ model.updateOne() or model.findByIdAndUpdate()
 
 model.delete()
 
-
+# Node JS Apps - 
 
 
 
