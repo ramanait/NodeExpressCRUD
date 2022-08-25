@@ -23,7 +23,12 @@ shourt cuts
 `CTRL + S` to save the file
 `ALT + SHIFT + F` to format the code
 `CTRL + /` to comment the java script code
-
+`Shift + left arrow` left selection from the right
+`Shift + right arrow` right selection from the left
+`CTRL + D` to select the similar words in file 
+`CTRL + F` find the matched words, we can filter by matching case or whole word
+`CTRL + P` to select the file / search the file in VS Code
+`ALT + Shift + down arrow` duplicate copy of selection 
 
 
 JSON - Java Script Object Notation
@@ -59,7 +64,7 @@ Failure Response Codes
 
 # Mongoose
 
-model.save() // model.create() to create or add the data in the database
+model.save() // model.insert() to create or add the data in the database
 model.find() // list all the records in model
 model.findOne({})
 
@@ -68,7 +73,39 @@ model.updateOne() or model.findByIdAndUpdate()
 
 model.delete()
 
-# Node JS Apps - 
+# Node JS Apps 
+
+Web Socket - Chat or Chat Bot - socket.io, engine.io
+Data Streams / FileStreams
+RESTful JSON APIs
+
+# Spint Boards
+
+Azure Devops
+Jira
+Rally
 
 
 
+# JWT
+
+{
+  "email":"ramana@gmail.com",
+  "role":"Admin"
+}
+
+User Information
+Roles - set of permissions
+Permissions - permission to specific feature. it can be enable or disable
+
+# Example Token
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDczOTk3MWIwNzJjOWY3MjE0MTU0MiIsIm5hbWUiOiJSYW1hbmEiLCJlbWFpbCI6InZlbmthdGExQHNzYm0uY2giLCJpYXQiOjE2NjE0MTc4NzksImV4cCI6MTY2MTUwNDI3OX0._JpY3ccHERb8Opnor12v-KXS8f11tbaBXcsPMaUrHNE
+
+
+# Third party providers
+
+    Auth0 => auth0.com
+    okta => okta.com
+
+    

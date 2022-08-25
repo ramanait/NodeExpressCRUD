@@ -1,11 +1,20 @@
-const mongoose = require("mongoose");
-const Employee = require("../models/Employee");
 
+const Employee = require("../models/Employee");
+const jwt = require("jsonwebtoken");
 const employeeController = {};
 
 
 // Show list of employees as JSON
 employeeController.listJson = (req, res) => {
+  
+  // if token is not available, it will return 401
+  const token = req.headers['x-access-token'];
+  if (!token) return res.status(401).send({ auth: false, message: 'No token provided.' });
+  // token is available and not valid then it will return 500 internal server error
+  jwt.verify(token, "abcdefgh", (err, decoded) => {
+    if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
+  });
+
   Employee.find({}).exec((err, employees) => {
     if (err) {
       console.log("Error:", err);

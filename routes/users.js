@@ -1,30 +1,40 @@
 const express = require('express');
 const router = express.Router();
+const user = require("../controllers/UserController.js");
+
+/* Login API => token */
+router.post('/auth/login', (req, res, next) => {
+  user.login(req, res);
+});
 
 /* GET users listing. read */
 router.get('/', (req, res, next) => {
-  res.send({ msg: 'respond with a resource', status: "success" });
+  user.listJson(req, res);
 });
 
 /* GET users listing. read*/
-router.get('/withFailedResponse', (req, res, next) => {
-  res.send(400, { msg: 'respond with a failed res' });
+router.get('/:id', (req, res, next) => {
+  user.byId(req, res);
 });
 
-/* GET users listing. read*/
-router.get('/withSuccessResponse', (req, res, next) => {
-  res.send({ msg: 'respond with a success res' });
+/* Create user*/
+router.post('/', (req, res, next) => {
+  user.save(req, res);
 });
 
-/* GET users listing. read*/
-router.post('/withSuccess', (req, res, next) => {
-  try {
-    throw ""
-    res.send({ msg: 'respond with a res' });
-  } catch (error) {
-    res.send(400, { msg: "got an error", err: error });
-  }
+/* update user in the database*/
+router.put('/:id', (req, res, next) => {
+  user.update(req, res);
+});
 
+/* delete user from the database*/
+router.delete('/:id', (req, res, next) => {
+  user.delete(req, res);
+});
+
+/*  user and mentor details from the database*/
+router.get('/mentor/:id', (req, res, next) => {
+  user.userMentor(req, res);
 });
 
 module.exports = router;
