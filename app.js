@@ -1,5 +1,5 @@
 const express = require('express');
-
+const cors = require('cors');
 const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
@@ -24,6 +24,9 @@ app.set('view engine', 'ejs');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 //middle ware
+app.use(cors({
+  origin: 'http://localhost:4200'
+}));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

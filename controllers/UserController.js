@@ -6,7 +6,7 @@ const userController = {};
 // Save new user
 userController.login = (req, res) => {
 
-  User.findOne({ email: req.body.email },  (err, user) => {
+  User.findOne({ email: req.body.username },  (err, user) => {
     if (err) return res.status(500).send('Error on the server.');
     if (!user) return res.status(404).send('No user found.');
     
@@ -16,8 +16,8 @@ userController.login = (req, res) => {
     var token = jwt.sign({ id: user._id, name: user.name, email: user.email }, "abcdefgh", {
       expiresIn: 86400 // expires in 24 hours
     });
-    
-    res.status(200).send({ auth: true, id: user._id, token: token });
+    console.log({ auth: true, id: user._id, token: token });
+    res.status(200).send({ auth: true, user: user, token: token });
   });
 
 };
@@ -78,7 +78,7 @@ userController.save = (req, res) => {
 
 // Update an user
 userController.update = (req, res) => {
-  User.findByIdAndUpdate(req.params.id, { $set: { name: req.body.name, address: req.body.address, category: req.body.category, gender: req.body.gender, phone: req.body.phone, email: req.body.email, dob: req.body.dob, course: req.body.course, jobStatus: req.body.jobStatus, mentor: req.body.mentor } }, { new: true }, function (err, user) {
+  User.findByIdAndUpdate(req.params.id, { $set: { name: req.body.name, address: req.body.address, category: req.body.category, gender: req.body.gender, phone: req.body.phone, email: req.body.email, dob: req.body.dob, course: req.body.course, jobStatus: req.body.jobStatus, mentor: req.body.mentor, roles: req.body.roles } }, { new: true }, function (err, user) {
     if (err) {
       console.log(err);
       res.render(400, { user: req.body });

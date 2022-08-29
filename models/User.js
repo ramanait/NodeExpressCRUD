@@ -11,6 +11,7 @@ const UserSchema = new mongoose.Schema({
   dob: Date,
   course: String,
   jobStatus: String,
+  roles:[String],
   updated_at: { type: Date, default: Date.now },
   mentor: { type: Schema.Types.ObjectId, ref: 'Employee' }
 });

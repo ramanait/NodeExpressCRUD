@@ -31,6 +31,9 @@ shourt cuts
 `ALT + Shift + down arrow` duplicate copy of selection 
 
 
+`CTRL+SHIFT+I` to inspect the browser / open the developer
+
+
 JSON - Java Script Object Notation
 two types
 Object: {}
@@ -109,3 +112,85 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDczOTk3MWIwNzJjOWY3MjE0MTU0MiI
     okta => okta.com
 
     
+
+# Request Payload, 
+
+Example
+------------
+-headers { "x-access-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDczOTk3MWIwNzJjOWY3MjE0MTU0MiIsIm5hbWUiOiJSYW1hbmEiLCJlbWFpbCI6InZlbmthdGExQHNzYm0uY2giLCJpYXQiOjE2NjE0MTc4NzksImV4cCI6MTY2MTUwNDI3OX0._JpY3ccHERb8Opnor12v-KXS8f11tbaBXcsPMaUrHNE"}  
+-body {
+  "name": "Ramana",
+  "address": "Tuni",
+  "category": "Mentor",
+  "gender": "Male",
+  "phone": "+918008386917",
+  "email": "venkata1@ssbm.ch",
+  "password": "12345",
+  "dob":"06/06/1990"
+}
+
+# Response Payload
+---------------------
+  # unauthorised respose - status code is 401
+    {
+      "auth": false,
+      "message": "No token provided."
+    }
+
+ # success response - status code is 200
+    {
+      "employees": [
+        {
+          "_id": "630341b2bc9e5de179c02cb5",
+          "name": "nagendra",
+          "address": "tuni",
+          "position": "Senior Software Engineer",
+          "salary": 80000,
+          "updated_at": "2022-08-22T08:43:30.947Z",
+          "__v": 0
+        }
+      ]
+    }
+
+# Software
+
+ Web Application  - Advanced Java + JSP + Hibernates + Springboot ( MySQL, PostGreSQL )  + HTML + CSS 
+
+ MEAN - MongoDB, Express, Angular, Node - Complete Web Application  + Java, .NET, AWS, Azure  = Full Stack
+
+ MERN - MongoDB, Express, React, Node - Complete Web Application
+
+
+Rest API in NodeJS with JWT/security + Angular => complete web application.
+
+index.html
+--------------------------------------------------
+-                                                -
+-       -----------------------------------      -
+-                                                -
+-                                                -
+-
+-       
+-
+-       -----------------------------------
+---------------------------------------------------
+
+UI/UX tools / Wireframes / Mocks
+
+1) Balsamiq => balsamiq.com
+2) Figma => figma.com
+3) Zeplin => zeplin.com
+
+Local Storage => to store the in the browser till we remove with specific domain 
+
+`window.localStorage.setItem("token","<token value>");`
+`window.localStorage.getItem("token");`
+
+Local Storage => to store the in the browser till we close the browser with specific domain 
+
+`window.sessionStorage.setItem("token","<token value>");`
+`window.sessionStorage.getItem("token");`
+
+Cookies => to store the in the browser till we delete or expiry in the browser with specific domain 
+
+`document.cookie = "username=John Doe; expires=Thu, 18 Dec 2023 12:00:00 UTC";`
